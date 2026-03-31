@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 3: Gemini и Leonardo AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="bg-glow blob-1"></div>
+<div class="bg-glow blob-2"></div>
+
+<div class="presentation-container">
+    
+    <div class="slide active flex-center" id="slide-1">
+        <div class="badge blue">Урок 3</div>
+        <h1 class="title-gradient">Генерация изображений:<br>Gemini и Leonardo AI</h1>
+        <p class="subtitle">От стикерпаков для мессенджеров до концепт-артов</p>
+        <div class="hero-icons">
+            <div class="floating-icon" style="animation-delay: 0s;">📱</div>
+            <div class="floating-icon ai-avatar" style="animation-delay: 1s;">🤖</div>
+            <div class="floating-icon" style="animation-delay: 0.5s;">🎨</div>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-2">
+        <div class="badge blue">План урока</div>
+        <h2>Что мы сегодня изучим?</h2>
+        <div class="grid-cards mt-20" style="grid-template-columns: repeat(3, 1fr); width: 100%;">
+            <div class="info-card eq-card">
+                <div class="card-icon">🔑</div>
+                <h3>Подготовка</h3>
+                <p>Узнаем, что нужно для доступа к лучшим нейросетям мира.</p>
+            </div>
+            <div class="info-card eq-card">
+                <div class="card-icon">💬</div>
+                <h3>Стикеры в Gemini</h3>
+                <p>Создадим собственный набор наклеек с эмоциями для Telegram.</p>
+            </div>
+            <div class="info-card eq-card">
+                <div class="card-icon">⚙️</div>
+                <h3>Leonardo AI</h3>
+                <p>Изучим профессиональный интерфейс настройки моделей и стилей.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-3">
+        <div class="badge red">Важно</div>
+        <h2>Ваш цифровой паспорт 🆔</h2>
+        <p class="theory-text">Чтобы использовать мощные нейросети, нам понадобится ключ доступа.</p>
+        
+        <div class="info-card mt-20 w-100 text-left" style="padding: 30px; border-left: 8px solid #DC2626;">
+            <p style="font-size: 1.3rem; margin-bottom: 15px;">Таким ключом является ваш <b>Google Аккаунт (почта Gmail)</b>.</p>
+            <ul class="custom-list">
+                <li><b>Gemini</b> — это разработка компании Google, поэтому войти туда можно только через их аккаунт.</li>
+                <li><b>Leonardo AI</b> и большинство других платформ также предлагают быструю регистрацию одной кнопкой <i>"Continue with Google"</i>.</li>
+                <li>Убедитесь, что вы помните логин и пароль от своей почты!</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-4">
+        <div class="badge orange">Анализ промпта 1/2</div>
+        <h2>Вспомним структуру запроса 🧪</h2>
+        <p class="theory-text">На прошлом занятии мы вывели базовую формулу для генерации изображений.</p>
+        
+        <div class="info-card mt-20 text-center w-100" style="padding: 40px; border-left: 8px solid var(--accent-yellow);">
+            <h1 class="title-gradient" style="font-size: 2.5rem; margin-bottom: 20px;">[ОБЪЕКТ] + [ФОН] + [ДЕТАЛИ] + [ ??? ]</h1>
+            <p style="font-size: 1.5rem; font-weight: bold; color: var(--text-main);">Какой параметр отвечает за финальный внешний вид?</p>
+            <p class="mt-20" style="font-size: 1.2rem; color: var(--text-muted);">Именно он определяет, получим ли мы фотографию, 3D-модель или 2D-рисунок.</p>
+        </div>
+        
+        <button class="btn-outline mt-20" onclick="document.getElementById('warmup-1').style.display='block'; this.style.display='none';">Проверить ответ 👀</button>
+        <div id="warmup-1" style="display: none; margin-top: 20px;">
+            <div class="badge green" style="font-size: 1.5rem; padding: 10px 30px;">СТИЛЬ</div>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-5">
+        <div class="badge orange">Анализ промпта 2/2</div>
+        <h2>Исправление ошибок 🛠️</h2>
+        <p class="theory-text">Пользователь написал базовый промпт: <b>"Нарисуй кролика-полицейского"</b>.</p>
+        
+        <div class="info-card mt-20 text-left w-100" style="padding: 30px; background: #FEF2F2; border-left: 8px solid #DC2626;">
+            <p style="font-size: 1.3rem; margin: 0;">Нейросеть выдала обычного лесного кролика, которому на шею повесили значок. Результат не подходит для мультфильма!</p>
+        </div>
+        
+        <p class="theory-text mt-20" style="font-size: 1.4rem;">Как переписать этот запрос, чтобы кролик выглядел как главный герой современной 3D-анимации?</p>
+        
+        <button class="btn-outline mt-20" onclick="document.getElementById('warmup-2').style.display='block'; this.style.display='none';">Показать правильный промпт 👀</button>
+        <div id="warmup-2" style="display: none; margin-top: 20px;">
+            <div class="info-card" style="background: #F0FDF4; border-left: 8px solid var(--accent-green);">
+                <p style="font-size: 1.2rem; margin: 0; line-height: 1.6;"><i>"Кролик, который стоит на двух лапах как человек. Одет в синюю полицейскую форму и темные очки. Стоит на перекрестке мегаполиса будущего, летающие машины на фоне, неоновое освещение, стиль качественного 3D-мультфильма."</i></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-6">
+        <div class="badge purple">Теория</div>
+        <h2>Возможности нейросети Gemini 💡</h2>
+        <p class="theory-text">Gemini — это мультимодальная нейросеть. Она умеет общаться текстом, программировать и рисовать.</p>
+        
+        <div class="info-card mt-20 w-100 text-left" style="padding: 30px; border-left: 8px solid var(--accent-purple);">
+            <p style="font-size: 1.3rem; font-weight: bold; margin-bottom: 15px;">Почему мы используем Gemini для создания стикеров?</p>
+            <ul class="custom-list">
+                <li><b>Понимание текста:</b> Gemini умеет писать слова (на английском) прямо на картинке.</li>
+                <li><b>Векторный стиль:</b> Идеально создает плоские иллюстрации с четкими контурами (обводкой).</li>
+                <li><b>Работа с референсами:</b> Вы можете загрузить любую свою картинку и попросить сделать на ее основе новый стикер.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-7">
+        <div class="badge blue">Инструкция</div>
+        <h2>Как начать работу в Gemini 📝</h2>
+        
+        <div class="info-card mt-20 w-100 text-left" style="padding: 30px; border-left: 8px solid var(--accent-blue);">
+            <ol class="custom-list" style="font-size: 1.3rem; line-height: 1.8;">
+                <li>Откройте сайт <b>gemini.google.com</b> в браузере.</li>
+                <li>Нажмите кнопку <b>Войти</b> (Sign In) и выберите свой Google Аккаунт.</li>
+                <li>В самом низу экрана найдите поле ввода <i>"Введите запрос здесь"</i>.</li>
+                <li>Если вы хотите загрузить свою картинку (референс), нажмите на иконку <b>➕ (Плюс)</b> рядом со строкой ввода и выберите файл.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-8">
+        <div class="badge orange">Секрет</div>
+        <h2>Формула Стикерпака 📋</h2>
+        <p class="theory-text">Нам нужен не один стикер, а целый набор (лист) с разными эмоциями персонажа для мессенджера.</p>
+        
+        <div class="info-card mt-20 w-100 text-left" style="padding: 30px; background: #FFFBEB; border: 2px dashed var(--accent-yellow);">
+            <h3 style="color: var(--accent-yellow); font-size: 1.5rem; margin-bottom: 15px;">[ФОРМАТ СТИКЕРПАКА] + [ПЕРСОНАЖ] + [ЭМОЦИИ] + [ТЕХНИЧЕСКИЙ ФОН]</h3>
+            
+            <p style="font-size: 1.2rem; line-height: 1.6; margin-top: 15px; background: white; padding: 15px; border-radius: 10px;">
+                <b>Пример правильной логики:</b><br>
+                <i>"Сгенерируй одно изображение, на котором будет расположен набор из 4 разных стикеров для мессенджера. Главный герой: милый кот-астронавт. На каждом стикере он выражает разную эмоцию: смеется, плачет, удивляется, спит. У каждого стикера должна быть толстая белая обводка. Общий фон всего изображения — чистый белый."</i>
+            </p>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-9">
+        <div class="badge pink">Практика</div>
+        <h2>Создаем набор для Telegram 🎨</h2>
+        <p class="theory-text">Выберите один из форматов работы и сгенерируйте свой набор наклеек.</p>
+        
+        <div class="grid-cards mt-20 w-100" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="task-card border-blue text-left" style="padding: 20px;">
+                <h3>Вариант А: Из текста</h3>
+                <ul class="custom-list" style="font-size: 1.05rem; margin-bottom: 10px;">
+                    <li><b>Цель:</b> Придумать персонажа с нуля.</li>
+                </ul>
+                <div style="background: #EFF6FF; padding: 10px; border-radius: 8px;">
+                    <p style="font-size: 0.95rem; margin: 0; color: #1D4ED8;"><b>Промпт:</b> "Сгенерируй набор из 4 стикеров на одном изображении. Герой: енот-геймер в наушниках. Эмоции: радуется победе, злится на проигрыш (GAME OVER), пьет газировку, показывает класс. У каждого стикера белая обводка контура. Общий фон картинки белый. Векторный 2D стиль."</p>
+                </div>
+            </div>
+            <div class="task-card border-pink text-left" style="padding: 20px;">
+                <h3>Вариант Б: Из картинки (Референс)</h3>
+                <ul class="custom-list" style="font-size: 1.05rem; margin-bottom: 10px;">
+                    <li><b>Цель:</b> Стилизовать готовое изображение.</li>
+                </ul>
+                <div style="background: #FDF2F8; padding: 10px; border-radius: 8px;">
+                    <p style="font-size: 0.95rem; margin: 0; color: #BE185D;"><b>Промпт:</b> [Загрузите картинку животного или предмета]. "Используй эту картинку как основу. Сделай из этого персонажа набор из 3 стикеров в стиле комиксов. На первом он улыбается, на втором в темных очках, на третьем спит. Добавь белую обводку и чистый белый фон."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-10">
+        <div class="badge green">Теория</div>
+        <h2>Платформа Leonardo AI ⚙️</h2>
+        <p class="theory-text">Leonardo AI — это профессиональный инструмент. Здесь генерация управляется сложными настройками.</p>
+        
+        <div class="info-card mt-20 w-100 text-left" style="padding: 30px; border-left: 8px solid var(--accent-green);">
+            <p style="font-size: 1.3rem; margin-bottom: 15px;"><b>Как начать работу:</b></p>
+            <ol class="custom-list">
+                <li>Перейдите на сайт <b>app.leonardo.ai</b></li>
+                <li>Нажмите <b>Create an account</b> (Создать аккаунт) и выберите <b>Continue with Google</b>.</li>
+                <li>В главном меню слева выберите раздел <b>Image Generation</b> (Генерация изображений).</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-11">
+        <div class="badge red">Навигация</div>
+        <h2>Панель управления и Free-тариф 🖥️</h2>
+        <p class="theory-text">Важно понимать: у нас бесплатная версия, поэтому часть функций заблокирована.</p>
+        
+        <div class="grid-cards mt-20 w-100" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="task-card border-purple text-left" style="padding: 20px;">
+                <h3>Что нам доступно (Бесплатно):</h3>
+                <ul class="custom-list" style="font-size: 1.1rem;">
+                    <li><b>Токены (Монеты):</b> Наверху указан баланс. Тратьте их с умом!</li>
+                    <li><b>Image Dimensions (Размеры):</b> Вы можете менять пропорции (например, 1:1 или 16:9).</li>
+                    <li><b>Выбор Моделей и Стилей:</b> Большинство базовых моделей открыты.</li>
+                </ul>
+            </div>
+            <div class="task-card border-red text-left" style="padding: 20px;">
+                <h3>Что недоступно (Платно):</h3>
+                <ul class="custom-list" style="font-size: 1.1rem;">
+                    <li><b>Number of images:</b> В бесплатной версии платформа часто разрешает генерировать только 1 или 2 варианта за раз.</li>
+                    <li><b>Кнопка Upgrade:</b> Игнорируйте любые предложения купить подписку или значки с короной.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-12">
+        <div class="badge purple">Настройки</div>
+        <h2>Базовые модели (Models) 🧠</h2>
+        <p class="theory-text">Модель — это "мозг" нейросети. Разные модели по-разному рисуют одно и то же описание.</p>
+        
+        <div class="info-card mt-20 w-100 text-left" style="padding: 30px; border-left: 8px solid var(--accent-purple);">
+            <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 15px;">В левом верхнем углу найдите блок <b>Model</b>. Что выбрать?</p>
+            <ul class="custom-list" style="margin-bottom: 0;">
+                <li><b>Auto:</b> Умный режим. Нейросеть сама подберет нужную модель под ваш текст.</li>
+                <li><b>FLUX (Dev / Schnell):</b> Очень реалистичные модели, отлично понимают сложные запросы с большим количеством деталей.</li>
+                <li><b>Phoenix:</b> Отличная модель для работы с текстом и кинематографичными сценами.</li>
+                <li><b>Ideogram:</b> Лучший выбор, если на картинке должен быть четкий читаемый текст или логотип.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-13">
+        <div class="badge pink">Настройки</div>
+        <h2>Стили генерации (Style) ✨</h2>
+        <p class="theory-text">Стиль — это визуальный фильтр (атмосфера), который накладывается на результат работы Модели.</p>
+        
+        <div class="info-card mt-20 w-100 text-left" style="padding: 30px; border-left: 8px solid var(--accent-pink);">
+            <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 15px;">Под блоком Модели находится меню <b>Style</b>. Популярные варианты:</p>
+            <ul class="custom-list" style="margin-bottom: 0;">
+                <li><b>Cinematic:</b> Картинка будет выглядеть как кадр из дорогого голливудского фильма (глубокие тени, красивый свет).</li>
+                <li><b>Dynamic:</b> Добавляет изображению движение, энергию и яркость (отлично для экшен-сцен).</li>
+                <li><b>None:</b> Без стиля. Нейросеть нарисует ровно то, что вы указали в текстовом промпте, без отсебятины.</li>
+            </ul>
+            <p style="font-size: 1.1rem; margin-top: 15px; color: var(--text-muted);"><i>Экспериментируйте: один и тот же текст в стиле Cinematic и Dynamic даст совершенно разное настроение!</i></p>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-14">
+        <div class="badge red">Важно</div>
+        <h2>Модерация контента (Цензура ИИ) 🛡️</h2>
+        <p class="theory-text">Иногда вместо картинки появляется серый квадрат с надписью <i>"This image might be explicit"</i>.</p>
+        
+        <div class="info-card mt-20 w-100 text-left" style="padding: 30px; border-left: 8px solid #DC2626; background: #FEF2F2;">
+            <p style="font-size: 1.3rem; margin-bottom: 15px;"><b>Как работают фильтры нейросети?</b></p>
+            <ul class="custom-list">
+                <li>В ИИ встроены жесткие правила безопасности, запрещающие жестокость, оружие и другой неприемлемый контент.</li>
+                <li>Если система распознает в промпте подозрительные слова, генерация блокируется.</li>
+                <li><b>Решение:</b> Просто измените текст запроса, сделайте его более нейтральным и безопасным.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-15">
+        <div class="badge red">Проект</div>
+        <h1 class="title-gradient" style="font-size: 3.5rem;">Концепт-арт персонажа 👾</h1>
+        <p class="theory-text">Практическая задача: разработать визуализацию героя для видеоигры в Leonardo AI.</p>
+        
+        <div class="task-card text-left w-100 mt-10" style="border-left-color: #EF4444; padding: 25px;">
+            <ol class="custom-list" style="font-size: 1.15rem; margin-bottom: 10px;">
+                <li><b>Настройка параметров:</b> Зайдите в Leonardo. Выберите Model: <i>FLUX</i> или <i>Auto</i>. Установите Style: <i>Cinematic</i>. Размеры (Dimensions): 1:1.</li>
+                <li><b>Составление промпта:</b> Напишите подробный запрос на английском языке (используйте переводчик).</li>
+            </ol>
+            
+            <div style="background: #FEF2F2; padding: 15px; border-radius: 12px; border: 1px solid #FCA5A5; margin-bottom: 15px;">
+                <p style="font-size: 1.1rem; margin: 0; color: #991B1B; line-height: 1.4;"><i><b>Пример структуры:</b> "A highly detailed 3D game asset of a mutant cactus ninja holding glowing energy swords, standing in a cyber-city alley, neon lights, dark atmosphere."</i></p>
+            </div>
+            
+            <p style="margin: 0; text-align: center; font-weight: bold; color: #DC2626; font-size: 1.2rem;">💾 Экспортируйте (скачайте) наиболее удачный вариант.</p>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-16">
+        <div class="badge blue">Итоги</div>
+        <h1 class="title-gradient" style="font-size: 4rem;">Результаты занятия 🎉</h1>
+        
+        <div class="info-card mt-20 w-100 text-left" style="padding: 30px 40px; border-left: 8px solid var(--accent-blue);">
+            <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Освоенные навыки:</h3>
+            <ul class="custom-list" style="font-size: 1.2rem; line-height: 1.8; margin: 0;">
+                <li>✅ Авторизация в нейросетях через Google Аккаунт.</li>
+                <li>✅ Создание полноценных стикерпаков для мессенджеров в Gemini.</li>
+                <li>✅ Навигация по профессиональному интерфейсу Leonardo AI с учетом бесплатных лимитов.</li>
+                <li>✅ Понимание различий между Базовыми Моделями и Стилями генерации.</li>
+                <li>✅ Создание 3D-концепта игрового персонажа.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide flex-center" id="slide-17">
+        <div class="badge pink">Обобщение</div>
+        <h1 class="title-gradient" style="font-size: 3.5rem;">Оцените сложность материала</h1>
+        <p class="theory-text mt-10" style="font-size: 1.5rem;">Отправьте соответствующую цифру в чат.</p>
+        
+        <div class="grid-cards mt-20 w-100" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="info-card eq-card" style="border-top: 8px solid var(--accent-pink);">
+                <div style="font-size: 4rem; margin-bottom: 10px;">📊</div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 5px;">1. Материал усвоен</h3>
+                <p style="font-size: 1.1rem; margin:0;">Все инструменты понятны.</p>
+            </div>
+            <div class="info-card eq-card" style="border-top: 8px solid var(--accent-blue);">
+                <div style="font-size: 4rem; margin-bottom: 10px;">📝</div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 5px;">2. Требуется практика</h3>
+                <p style="font-size: 1.1rem; margin:0;">В целом ясно, нужно больше тестов.</p>
+            </div>
+            <div class="info-card eq-card" style="border-top: 8px solid var(--accent-yellow);">
+                <div style="font-size: 4rem; margin-bottom: 10px;">❓</div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 5px;">3. Остались вопросы</h3>
+                <p style="font-size: 1.1rem; margin:0;">Нужно разобрать некоторые этапы.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="nav-btn" id="btn-prev" onclick="prevSlide()" disabled>◀ Назад</button>
+        <span id="slide-counter">1 / 17</span>
+        <button class="nav-btn" id="btn-next" onclick="nextSlide()">Дальше ▶</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
