@@ -1,5 +1,5 @@
 let currentSlide = 1;
-const totalSlides = 17; 
+const totalSlides = 18; 
 
 function updatePresentation() {
     document.querySelectorAll('.slide').forEach((slide, index) => {
